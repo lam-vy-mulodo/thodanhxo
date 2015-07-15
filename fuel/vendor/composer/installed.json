@@ -1,0 +1,529 @@
+[
+    {
+        "name": "composer/installers",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/composer/installers.git",
+            "reference": "a66f93a541c2214b4865161426b077e2b7d951de"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/composer/installers/zipball/a66f93a541c2214b4865161426b077e2b7d951de",
+            "reference": "a66f93a541c2214b4865161426b077e2b7d951de",
+            "shasum": ""
+        },
+        "replace": {
+            "roundcube/plugin-installer": "*",
+            "shama/baton": "*"
+        },
+        "require-dev": {
+            "composer/composer": "1.0.*@dev",
+            "phpunit/phpunit": "4.1.*"
+        },
+        "time": "2015-04-21 19:54:55",
+        "type": "composer-installer",
+        "extra": {
+            "class": "Composer\\Installers\\Installer",
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Composer\\Installers\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Kyle Robinson Young",
+                "email": "kyle@dontkry.com",
+                "homepage": "https://github.com/shama"
+            }
+        ],
+        "description": "A multi-framework Composer library installer",
+        "homepage": "http://composer.github.com/installers/",
+        "keywords": [
+            "Craft",
+            "Dolibarr",
+            "Hurad",
+            "MODX Evo",
+            "OXID",
+            "SMF",
+            "Thelia",
+            "WolfCMS",
+            "agl",
+            "aimeos",
+            "annotatecms",
+            "bitrix",
+            "cakephp",
+            "chef",
+            "codeigniter",
+            "concrete5",
+            "croogo",
+            "dokuwiki",
+            "drupal",
+            "elgg",
+            "fuelphp",
+            "grav",
+            "installer",
+            "joomla",
+            "kohana",
+            "laravel",
+            "lithium",
+            "magento",
+            "mako",
+            "mediawiki",
+            "modulework",
+            "moodle",
+            "phpbb",
+            "piwik",
+            "ppi",
+            "puppet",
+            "roundcube",
+            "shopware",
+            "silverstripe",
+            "symfony",
+            "typo3",
+            "wordpress",
+            "zend",
+            "zikula"
+        ]
+    },
+    {
+        "name": "psr/log",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "bf2c13de4300e227d7b2fd08027673a79c519987"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/bf2c13de4300e227d7b2fd08027673a79c519987",
+            "reference": "bf2c13de4300e227d7b2fd08027673a79c519987",
+            "shasum": ""
+        },
+        "time": "2015-03-26 14:39:45",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "monolog/monolog",
+        "version": "1.5.0",
+        "version_normalized": "1.5.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Seldaek/monolog.git",
+            "reference": "583618d5cd2115a52101694aca87afb182b3e567"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/583618d5cd2115a52101694aca87afb182b3e567",
+            "reference": "583618d5cd2115a52101694aca87afb182b3e567",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "psr/log": "~1.0"
+        },
+        "require-dev": {
+            "doctrine/couchdb": "dev-master",
+            "mlehner/gelf-php": "1.0.*",
+            "raven/raven": "0.3.*"
+        },
+        "suggest": {
+            "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+            "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+            "ext-mongo": "Allow sending log messages to a MongoDB server",
+            "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
+            "raven/raven": "Allow sending log messages to a Sentry server"
+        },
+        "time": "2013-04-23 10:09:48",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Monolog": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Jordi Boggiano",
+                "email": "j.boggiano@seld.be",
+                "homepage": "http://seld.be",
+                "role": "Developer"
+            }
+        ],
+        "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+        "homepage": "http://github.com/Seldaek/monolog",
+        "keywords": [
+            "log",
+            "logging",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "dwoo/dwoo",
+        "version": "2.0b1",
+        "version_normalized": "2.0.0.0-beta1",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/emulienfou/dwoo.git",
+            "reference": "4ff4817af08936121e74297b80a5852b08ad0d6f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/emulienfou/dwoo/zipball/4ff4817af08936121e74297b80a5852b08ad0d6f",
+            "reference": "4ff4817af08936121e74297b80a5852b08ad0d6f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "time": "2014-06-03 15:32:45",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Dwoo\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "David Sanchez",
+                "email": "david38sanchez@gmail.com"
+            }
+        ],
+        "description": "Dwoo is a PHP5 template engine which is (almost) fully compatible with Smarty templates and plugins, but is written from scratch for PHP5, and adds many features."
+    },
+    {
+        "name": "mustache/mustache",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/bobthecow/mustache.php.git",
+            "reference": "64c28cc73e01d5edcef7de8cb2b16782615f648a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/bobthecow/mustache.php/zipball/64c28cc73e01d5edcef7de8cb2b16782615f648a",
+            "reference": "64c28cc73e01d5edcef7de8cb2b16782615f648a",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.4"
+        },
+        "require-dev": {
+            "fabpot/php-cs-fixer": "~1.6",
+            "phpunit/phpunit": "~3.7|~4.0"
+        },
+        "time": "2015-04-01 06:37:33",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Mustache": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Justin Hileman",
+                "email": "justin@justinhileman.info",
+                "homepage": "http://justinhileman.com"
+            }
+        ],
+        "description": "A Mustache implementation in PHP.",
+        "homepage": "https://github.com/bobthecow/mustache.php",
+        "keywords": [
+            "mustache",
+            "templating"
+        ]
+    },
+    {
+        "name": "smarty/smarty",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/smarty-php/smarty.git",
+            "reference": "2ff51de3df0c511e447fc1317a245efb70cb0922"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/smarty-php/smarty/zipball/2ff51de3df0c511e447fc1317a245efb70cb0922",
+            "reference": "2ff51de3df0c511e447fc1317a245efb70cb0922",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2"
+        },
+        "time": "2015-05-12 02:48:10",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "classmap": [
+                "libs/Smarty.class.php",
+                "libs/SmartyBC.class.php",
+                "libs/sysplugins/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Monte Ohrt",
+                "email": "monte@ohrt.com"
+            },
+            {
+                "name": "Uwe Tews",
+                "email": "uwe.tews@googlemail.com"
+            },
+            {
+                "name": "Rodney Rehm",
+                "email": "rodney.rehm@medialize.de"
+            }
+        ],
+        "description": "Smarty - the compiling PHP template engine",
+        "homepage": "http://www.smarty.net",
+        "keywords": [
+            "templating"
+        ]
+    },
+    {
+        "name": "twig/twig",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/twigphp/Twig.git",
+            "reference": "34e943ae7cca8f9aff666fb87c3e6860e18fc138"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/34e943ae7cca8f9aff666fb87c3e6860e18fc138",
+            "reference": "34e943ae7cca8f9aff666fb87c3e6860e18fc138",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.5.0"
+        },
+        "time": "2015-03-17 06:32:29",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Twig_": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com",
+                "homepage": "http://fabien.potencier.org",
+                "role": "Lead Developer"
+            },
+            {
+                "name": "Armin Ronacher",
+                "email": "armin.ronacher@active-4.com",
+                "role": "Project Founder"
+            },
+            {
+                "name": "Twig Team",
+                "homepage": "http://twig.sensiolabs.org/contributors",
+                "role": "Contributors"
+            }
+        ],
+        "description": "Twig, the flexible, fast, and secure template language for PHP",
+        "homepage": "http://twig.sensiolabs.org",
+        "keywords": [
+            "templating"
+        ]
+    },
+    {
+        "name": "mthaml/mthaml",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/arnaud-lb/MtHaml.git",
+            "reference": "d90f6e2978109e7bf4ee3e58f03a807f3ac4a93c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/arnaud-lb/MtHaml/zipball/d90f6e2978109e7bf4ee3e58f03a807f3ac4a93c",
+            "reference": "d90f6e2978109e7bf4ee3e58f03a807f3ac4a93c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.0"
+        },
+        "conflict": {
+            "mthaml/mthaml-bundle": "<1.1.0"
+        },
+        "require-dev": {
+            "cebe/markdown": "~1",
+            "coffeescript/coffeescript": "~1",
+            "erusev/parsedown": "*",
+            "fluxbb/commonmark": "~1@dev",
+            "gregwar/rst": "~1",
+            "kzykhys/ciconia": "~1",
+            "leafo/lessphp": "*",
+            "leafo/scssphp": "*",
+            "league/commonmark": ">=0.5",
+            "michelf/php-markdown": "~1.3",
+            "oyejorge/less.php": "*",
+            "twig/twig": "~1.11"
+        },
+        "suggest": {
+            "cebe/markdown": "If you want to use :markdown filter",
+            "coffeescript/coffeescript": "If you want to use :coffee or :coffeescript filter",
+            "erusev/parsedown": "If you want to use :markdown filter",
+            "fluxbb/commonmark": "If you want to use :markdown filter",
+            "gregwar/rst": "If you want to use :rest filter",
+            "kzykhys/ciconia": "If you want to use :markdown filter",
+            "leafo/lessphp": "If you want to use :less filter",
+            "leafo/scssphp": "If you want to use :scss filter",
+            "league/commonmark": "If you want to use :markdown filter",
+            "michelf/php-markdown": "If you want to use :markdown filter",
+            "oyejorge/less.php": "If you want to use :less filter",
+            "twig/twig": "If you want to use Twig templating engine"
+        },
+        "time": "2015-02-01 22:52:36",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "MtHaml\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Arnaud Le Blanc",
+                "email": "arnaud.lb@gmail.com"
+            }
+        ],
+        "description": "HAML for PHP",
+        "homepage": "https://github.com/arnaud-lb/MtHaml",
+        "keywords": [
+            "HAML"
+        ]
+    },
+    {
+        "name": "pyrocms/lex",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pyrocms/lex.git",
+            "reference": "af587bcbd3f3d0d83c7a4d49647f99f1153fd1b4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pyrocms/lex/zipball/af587bcbd3f3d0d83c7a4d49647f99f1153fd1b4",
+            "reference": "af587bcbd3f3d0d83c7a4d49647f99f1153fd1b4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "replace": {
+            "fuel/lex": "*"
+        },
+        "time": "2014-08-14 18:40:06",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Lex": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dan Horrigan",
+                "email": "dan@dhorrigan.com",
+                "role": "Lead Developer"
+            }
+        ],
+        "description": "A lightweight template parser.",
+        "keywords": [
+            "parser",
+            "template"
+        ]
+    }
+]
