@@ -10,6 +10,8 @@ use Fuel\Core\Input;
 use Fuel\Core\Response;
 use Fuel\Core\Pagination;
 use Dwoo\Template\String;
+use Model\Thanhpho;
+use Model\Utility;
 /**
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
@@ -67,8 +69,39 @@ use Dwoo\Template\String;
 	 */
 	public function action_dangki() {
 		$data = array();
-		$data['user'] = Security::xss_clean(Input::post('user'), $this->filters);
-		$data['pass'] = Security::xss_clean(Input::post('pass'), $this->filters);
+		//get cac du lieu cho form
+		//get thanhpho
+		$data['thanhpho'] = Utility::getlist(_TB_THANHPHO);
+		$data['exp'] = Utility::getlist(_TB_EXP_);
+		$data['job'] = Utility::getlist(_TB_JOB_);
+		
+		//check post
+		if (Input::post()) {
+			//thong tin dang nhap
+			$data['user'] = Security::xss_clean(Input::post('user'), $this->filters);
+			$data['pass'] = Security::xss_clean(Input::post('pass'), $this->filters);
+			$data['phone'] = Security::xss_clean(Input::post('phone'), $this->filters);
+			$data['pass'] = Security::xss_clean(Input::post('pass'), $this->filters);
+			$data['pass2'] = Security::xss_clean(Input::post('pass'), $this->filters);
+			//thong tin ca nhan 
+			$data['u_name'] = Security::xss_clean(Input::post('u_name'), $this->filters);
+			$data['u_email'] = Security::xss_clean(Input::post('u_email'), $this->filters);
+			$data['u_phone'] = Security::xss_clean(Input::post('u_phone'), $this->filters);
+			$data['u_title'] = Security::xss_clean(Input::post('u_title'), $this->filters);
+			$data['u_des'] = Security::xss_clean(Input::post('u_des'), $this->filters);
+			//nganh nghe
+			$data['u_career'] = Security::xss_clean(Input::post('u_career'), $this->filters);
+			$data['u_location'] = Security::xss_clean(Input::post('u_location'), $this->filters);
+			$data['u_exp'] = Security::xss_clean(Input::post('u_exp'), $this->filters);
+			$data['type'] = Security::xss_clean(Input::post('type'), $this->filters);
+			//image and cv upload file
+			$data['u_image'] = '';//image path
+			$data['u_cv'] = '';//cv path
+			
+			
+		}
+		
+		
 		
 		return Response::forge(View::forge('users/dangki', $data));
 	}

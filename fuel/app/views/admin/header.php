@@ -88,13 +88,13 @@
                                 </li>
                                 <li><a><i class="fa fa-edit"></i> Chuyên mục bài viết <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
-                                        <li><a href="list-thanh-pho">List thành phố</a>
+                                        <li><a href="<?php echo _ADMIN_URL_;?>list/thanhpho">List thành phố</a>
                                         </li>
-                                        <li><a href="list-quan-huyen">List quận huyện</a>
+                                        <li><a href="<?php echo _ADMIN_URL_;?>list/quanhuyen">List quận huyện</a>
                                         </li>
-                                        <li><a href="nganh-nghe">List ngành nghề</a>
+                                        <li><a href="<?php echo _ADMIN_URL_;?>list/job">List ngành nghề</a>
                                         </li>
-                                        
+                                        <li><a href="<?php echo _ADMIN_URL_;?>list/experience">List kinh nghiệm</a>
                                         </li>
                                     </ul>
                                 </li>

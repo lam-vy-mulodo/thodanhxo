@@ -1,18 +1,38 @@
 <?php include 'header.php'?>
+<form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left" novalidate="" action="<?php echo _ADMIN_URL_;?>add/experience" method="post">
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Thêm loại kinh nghiệm<span class="required">*</span>
+                                            </label>
+                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" id="first-name" required="required" name="name" class="form-control col-md-7 col-xs-12" data-parsley-id="0865"><ul class="parsley-errors-list" id="parsley-id-0865"></ul>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                
+                                                <button type="submit" class="btn btn-success" name="add">Submit</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
 <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>List thành phố <small></small></h2>
+                                    <h2>List kinh nghiệm <small></small></h2>                                    
                                     
                                     <div class="clearfix"></div>
                                 </div>
+                                
                                 <div class="x_content">
-
+									
                                     <table class="table">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Tên thành phố</th>
+                                                <th>Năm kinh nghiệm</th>
                                                 <th>Sửa</th>
                                                 <th>Xóa</th>
                                             </tr>
@@ -27,8 +47,8 @@
                                 						<tr>
 														<th scope="row">'.$stt.'</th>
 														<td>'.$item['name'].'</td>
-														<td><a href="edit-thanhpho/'.$item['id'].'"><i class="fa fa-edit"></i></a></td>
-														<td><a href="del-thanhpho/'.$item['id'].'"><i class="fa fa-close"></i></a></td>
+														<td><a href="'._ADMIN_URL_.'edit/'.$item['id'].'/'.$table.'"><i class="fa fa-edit"></i></a></td>
+														<td><a href="'._ADMIN_URL_.'del/'.$item['id'].'/'.$table.'"><i class="fa fa-close"></i></a></td>
 														</tr>
                                 				';
 												

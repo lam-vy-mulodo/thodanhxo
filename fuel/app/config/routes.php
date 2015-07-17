@@ -10,9 +10,11 @@ return array(
 	'admin/manage-admin' => 'admin/admin/manage',
 	'admin/logout' => 'admin/admin/logout',
 	'admin/block/(:num)/(:num)' => 'admin/admin/block/$1/$2' ,
-	'admin/list-thanh-pho' => 'thanhpho/admingetthanhpho',
-	'admin/edit-thanhpho/(:num)' => 'thanhpho/edit/$1',
-	'admin/del-thanhpho/(:num)' => 'thanhpho/del/$1',		
+	//'admin/list-thanh-pho' => 'thanhpho/admingetthanhpho',
+	'admin/edit/(:num)/(:any)' => 'thanhpho/edit/$1/$2',
+	'admin/del/(:num)/(:any)' => 'thanhpho/del/$1/$2',	
+	'admin/list/(:any)' => 'thanhpho/getlist/$1',
+	'admin/add/(:any)' => 'thanhpho/add/$1',	
 	//user
 	'hello(/:name)?' => array('welcome/hello', 'name' => 'hello'),
 	'tho-can' => 'welcome/thocan', //the user home page function	

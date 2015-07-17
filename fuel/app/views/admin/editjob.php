@@ -3,7 +3,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="x_panel">
                                 <div class="x_title">
-                                    <h2>Edit <small>thành phố</small></h2>
+                                    <h2>Edit <small>nganh nghề</small></h2>
                                    
                                     <div class="clearfix"></div>
                                 </div>
@@ -51,7 +51,7 @@
                                         <div class="ln_solid"></div>
                                         <div class="form-group">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                <a href="<?php echo _ADMIN_URL_;?>list/thanhpho" class="btn btn-primary">Cancel</a>
+                                                <a href="<?php echo _ADMIN_URL_;?>list/experience" class="btn btn-primary">Cancel</a>
                                                 <button type="submit" class="btn btn-success">Update</button>
                                             </div>
                                         </div>

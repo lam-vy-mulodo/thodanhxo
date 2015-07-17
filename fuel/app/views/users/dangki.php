@@ -9,7 +9,7 @@
                 <em></em>
             </div>
             <div class="contentHolder">
-                <form id="contact-form">
+                <form id="contact-form" action="dang-ki-tim-viec" method="post">
                     <div class="success" style="display: none;"> Contact form submitted! <strong>We will be in touch soon.</strong> </div>
                     <fieldset>
                     <div>	<h3>Thông tin đăng nhập</h3>
@@ -28,7 +28,7 @@
                                 <span class="error" style="display: none;">*This is not a valid email address.</span> <span class="empty" style="display: none;">*This field is required.</span> </label>
                             </div>
                             <div class="form-div-3">
-                                <p>Điện thoại liên lạc</p>
+                                <p>Điện thoại (* dùng để xác nhận )</p>
                                 <label class="phone notRequired">
                                 <input type="tel" value="" name="phone">
                                 <br>
@@ -94,8 +94,18 @@
                             <p>Ngành nghề*</p>
                             <label >
                             <select name="u_career" class="form-control">
-                            	<option value="TDX01">Lao động phổ thông</option>
-                            	<option value="TDX02">Công nghệ thông tin</option>
+                            	<?php 
+                            	if (is_array($job)) {
+                            		foreach($job as $item) {
+                            			echo '
+        									<option value="TDX01" ';
+        									if (isset($u_job) && $u_job == $item['id'] )echo' selected';
+        									echo'>'.$item['name'].'</option>
+        								';
+                            		}
+                            	}
+                            
+                            ?>
                             </select>
                             <br>
                             <span class="error" style="display: none;">*The message is too short.</span> <span class="empty" style="display: none;">*This field is required.</span>
@@ -105,8 +115,19 @@
                             <p>Nơi làm việc*</p>
                             <label >
                             <select name="u_location" class="form-control">
-                            	<option value="TDX01">TP Hồ Chí Minh</option>
-                            	<option value="TDX02">Hà Nội</option>
+                            <?php 
+                            	if (is_array($thanhpho)) {
+                            		foreach($thanhpho as $item) {
+                            			echo '
+        									<option value="TDX01" ';
+        									if (isset($u_location) && $u_location == $item['id'] )echo' selected';
+        									echo'>'.$item['name'].'</option>
+        								';
+                            		}
+                            	}
+                            
+                            ?>
+                            	
                             </select>
                             <br>
                             <span class="error" style="display: none;">*The message is too short.</span> <span class="empty" style="display: none;">*This field is required.</span>
@@ -116,10 +137,18 @@
                             <p>Kinh nghiệm*</p>
                             <label >
                             <select name="u_exp" class="form-control">
-                            	<option value="TDX01">Chuyên gia</option>
-                            	<option value="TDX02">Thợ đánh xô</option>
-                            	<option value="TDX02">1 năm</option>
-                            	<option value="TDX02">2~5năm</option>
+                            	<?php 
+                            	if (is_array($exp)) {
+                            		foreach($exp as $item) {
+                            			echo '
+        									<option value="TDX01" ';
+        									if (isset($u_exp) && $u_exp == $item['id'] )echo' selected';
+        									echo'>'.$item['name'].'</option>
+        								';
+                            		}
+                            	}
+                            
+                            ?>
                             </select>
                             <br>
                             <span class="error" style="display: none;">*The message is too short.</span> <span class="empty" style="display: none;">*This field is required.</span>
@@ -152,7 +181,7 @@
   						</div>
   						
                         <div class="btns" style="clear:both">
-                            <a href="#" data-type="submit" class="btn btn-primary">Đăng kí</a>
+                            <button data-type="submit" class="btn btn-primary" name="submit" type="submit">Đăng kí</button>
                             <p>* Bắt buộc nhập</p>
                         </div>
                     </fieldset>
