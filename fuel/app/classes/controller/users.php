@@ -12,6 +12,8 @@ use Fuel\Core\Pagination;
 use Dwoo\Template\String;
 use Model\Thanhpho;
 use Model\Utility;
+use Model\User;
+use Auth\Auth;
 /**
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
@@ -59,8 +61,28 @@ use Model\Utility;
 		$data = array();
 		return Response::forge(View::forge('users/index', $data));
 	}
+	public function action_logout() {
+		Session::destroy();
+		Response::redirect($_SERVER['HTTP_REFERER']);
+	}
 	
-	
+	public function action_login(){
+		$data = array();
+		if (Input::post()) {
+			$username = Security::xss_clean(Input::post('user'), $this->filters);
+			$password = Security::xss_clean(Input::post('pass'), $this->filters);
+			$rs =  User::login($username, $password);		
+			if ($rs['token']) {
+				Session::set('token',$rs['token']);
+				Response::redirect(_SITE_DOMAIN_.'users/index');
+			}else {
+				$data['error'] = 'Đăng nhập thất bại. Xin thử lại.';
+		
+			}
+				
+		}
+		return Response::forge(View::forge('users/login', $data));
+	}
 	/**
 	 * action add money for account
 	 * 
@@ -78,25 +100,45 @@ use Model\Utility;
 		//check post
 		if (Input::post()) {
 			//thong tin dang nhap
-			$data['user'] = Security::xss_clean(Input::post('user'), $this->filters);
-			$data['pass'] = Security::xss_clean(Input::post('pass'), $this->filters);
+			$data['username'] = Security::xss_clean(Input::post('user'), $this->filters);
+			$data['password'] = Security::xss_clean(Input::post('pass'), $this->filters);
 			$data['phone'] = Security::xss_clean(Input::post('phone'), $this->filters);
-			$data['pass'] = Security::xss_clean(Input::post('pass'), $this->filters);
-			$data['pass2'] = Security::xss_clean(Input::post('pass'), $this->filters);
+			$data['password2'] = Security::xss_clean(Input::post('re_pass'), $this->filters);
+			$data['email'] = Security::xss_clean(Input::post('email'), $this->filters);
 			//thong tin ca nhan 
 			$data['u_name'] = Security::xss_clean(Input::post('u_name'), $this->filters);
 			$data['u_email'] = Security::xss_clean(Input::post('u_email'), $this->filters);
 			$data['u_phone'] = Security::xss_clean(Input::post('u_phone'), $this->filters);
+			$data['u_address'] = Security::xss_clean(Input::post('u_address'), $this->filters);
 			$data['u_title'] = Security::xss_clean(Input::post('u_title'), $this->filters);
 			$data['u_des'] = Security::xss_clean(Input::post('u_des'), $this->filters);
 			//nganh nghe
 			$data['u_career'] = Security::xss_clean(Input::post('u_career'), $this->filters);
 			$data['u_location'] = Security::xss_clean(Input::post('u_location'), $this->filters);
 			$data['u_exp'] = Security::xss_clean(Input::post('u_exp'), $this->filters);
-			$data['type'] = Security::xss_clean(Input::post('type'), $this->filters);
+			$data['u_type'] = Security::xss_clean(Input::post('type'), $this->filters);
 			//image and cv upload file
 			$data['u_image'] = '';//image path
 			$data['u_cv'] = '';//cv path
+			$data['group'] = _USER_NORMAL_GROUP_;//image path
+			$valid = User::validate_user($data);//print_r($valid);die;
+			if (true === $valid) {
+				$data['created_at'] = time();
+				$data['modified_at'] = time();
+				$rs = User::add_user($data);
+				if ($rs > 0) {
+					//tao session luu dang nhap
+					Session::set('username', $data['username']);
+					Session::set('user_id', $rs);
+					Session::set('user_type', _USER_LOGIN_TYPE_);
+					$data['message'] = 'Tạo hồ sơ thành công. Hồ sơ đang chờ duyệt.';
+					$data['id'] = $rs;
+				}else{
+					$data['errors'] = 'Tạo hồ sơ không thành công. Xin kiểm tra dữ liệu và thử lại.';
+				}
+			} else {
+				$data['error'] = $valid;
+			}
 			
 			
 		}
@@ -146,9 +188,5 @@ use Model\Utility;
 		$this->template->content = View_Smarty::forge('users/changepassword.tpl');
 		return mb_convert_encoding($this->template,'utf-8', 'utf-8');
 	}
-	public function action_login(){
-		$phone = Input::post('phone');
-		$pass = Input::post('password');
-		return 1;
-	}
+	
  }

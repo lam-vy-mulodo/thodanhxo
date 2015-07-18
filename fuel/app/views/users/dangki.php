@@ -1,4 +1,36 @@
 <?php include __DIR__.'/../welcome/header.php';?>
+<link href="assets/external/google-code-prettify/prettify.css" rel="stylesheet">
+    
+	<script src="assets/external/jquery.hotkeys.js"></script>
+   
+    <script src="assets/external/google-code-prettify/prettify.js"></script>
+	<script src="assets/js/bootstrap-wysiwyg.js"></script>
+	<script src="assets/js/init.js"></script>
+<script>
+$(document).ready(function(){
+	$('#editor').wysiwyg();
+	//alert();	
+});
+</script>
+<<style>
+#editor {
+  max-height: 250px;
+  height: 150px;
+  background-color: white;
+  border-collapse: separate;
+  border: 1px solid rgb(204, 204, 204);
+  padding: 4px;
+  box-sizing: content-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  overflow: scroll;
+  outline: none;
+}
+</style>
 <div class="container padBot">
     <div class="row">    
     
@@ -10,44 +42,58 @@
             </div>
             <div class="contentHolder">
                 <form id="contact-form" action="dang-ki-tim-viec" method="post">
-                    <div class="success" style="display: none;"> Contact form submitted! <strong>We will be in touch soon.</strong> </div>
+                	<?php 
+                		if(isset($message))echo'
+						<div class="alert alert-success">'.$message.'</div>';
+						if(isset($errors))echo'
+						<div class="alert alert-danger">'.$errors.'</div>';
+					?>
+                    
                     <fieldset>
                     <div>	<h3>Thông tin đăng nhập</h3>
                             <div class="form-div-1">
                                 <p>Tên đăng nhập*</p>
                                 <label class="name">
-                                <input type="text" value="" name="user">
+                                <input type="text"  name="user" value="<?php if (isset($username))echo $username; ?>" />
                                 <br>
-                                <span class="error" style="display: none;">*This is not a valid name.</span> <span class="empty" style="display: none;">*This field is required.</span> </label>
+                                <?php 
+                                if (isset($error['username']))echo'<span class="error" style="display: block;">*'.$error['username']['message'].'.</span>';
+                                ?>
+                                </label>
                             </div>
                             <div class="form-div-2">
                                 <p>E-mail*</p>
                                 <label class="email">
-                                <input type="email" value="" name="email">
+                                <input type="email"  name="email" value="<?php if (isset($email))echo $email; ?>"/>
                                 <br>
-                                <span class="error" style="display: none;">*This is not a valid email address.</span> <span class="empty" style="display: none;">*This field is required.</span> </label>
+                                <?php if (isset($error['email']))echo'<span class="error" style="display: block;">*'.$error['email']['message'].'.</span>';?>
+                            	</label>
                             </div>
                             <div class="form-div-3">
                                 <p>Điện thoại (* dùng để xác nhận )</p>
                                 <label class="phone notRequired">
-                                <input type="tel" value="" name="phone">
+                                <input type="tel"  name="phone" value="<?php if (isset($phone))echo $phone; ?>" />
                                 <br>
-                                <span class="error" style="display: none;">*This is not a valid phone number.</span> <span class="empty" style="display: none;">*This field is required.</span> </label>
+                                
+                                <?php if (isset($error['phone']))echo'<span class="error" style="display: block;">*'.$error['phone']['message'].'.</span>';?>
+                            	</label>
                             </div>
                             <div class="form-div-1">
                                 <p>Mật khẩu</p>
                                 <label class="phone notRequired">
-                                <input type="password" value="" name="pass">
+                                <input type="password"  name="pass" value="<?php if (isset($password))echo $password; ?>" />
                                 <br>
-                                <span class="error" style="display: none;">*This is not a valid phone number.</span> <span class="empty" style="display: none;">*This field is required.</span> </label>
+                                <?php if (isset($error['pass']))echo'<span class="error" style="display: block;">*'.$error['pass']['message'].'.</span>';?>
+                            	</label>
                             </div>
                             <div class="form-div-1">
                                 <p>Nhập lại mật khẩu</p>
                                 <label class="phone notRequired">
-                                <input type="password" value="" name="re_pass">
+                                <input type="password"  name="re_pass" value="<?php if (isset($password2))echo $password2; ?>" />
                                 <br>
-                                <span class="error" style="display: none;">*This is not a valid phone number.</span> <span class="empty" style="display: none;">*This field is required.</span> </label>
-                            </div>
+                                <?php if (isset($error['re_pass']))echo'<span class="error" style="display: block;">*'.$error['re_pass']['message'].'.</span>';?>
+                                </label>
+                                </div>
                         </div>
                         <div class="clearfix"></div>
                         <hr />
@@ -55,37 +101,51 @@
                             <div class="form-div-1">
                                 <p>Họ tên*</p>
                                 <label class="name">
-                                <input type="text" value="" name="u_name">
+                                <input type="text"  name="u_name" value="<?php if (isset($u_name))echo $u_name; ?>"/>
                                 <br>
-                                <span class="error" style="display: none;">*This is not a valid name.</span> <span class="empty" style="display: none;">*This field is required.</span> </label>
+                                <?php if (isset($error['u_name']))echo'<span class="error" style="display: block;">*'.$error['u_name']['message'].'.</span>';?>
+                            	</label>
                             </div>
                             <div class="form-div-2">
                                 <p>E-mail*</p>
                                 <label class="email">
-                                <input type="email" value="" name="u_email">
+                                <input type="email"  name="u_email" value="<?php if (isset($u_email))echo $u_email; ?>"/>
                                 <br>
-                                <span class="error" style="display: none;">*This is not a valid email address.</span> <span class="empty" style="display: none;">*This field is required.</span> </label>
+                                <?php if (isset($error['u_email']))echo'<span class="error" style="display: block;">*'.$error['u_email']['message'].'.</span>';?>
+                            	</label>
                             </div>
                             <div class="form-div-3">
                                 <p>Điện thoại liên lạc</p>
                                 <label class="phone notRequired">
-                                <input type="tel" value="" name="u_phone">
+                                <input type="tel"  name="u_phone" value="<?php if (isset($u_phone))echo $u_phone; ?>"/>
                                 <br>
-                                <span class="error" style="display: none;">*This is not a valid phone number.</span> <span class="empty" style="display: none;">*This field is required.</span> </label>
+                                <?php if (isset($error['u_phone']))echo'<span class="error" style="display: block;">*'.$error['u_phone']['message'].'.</span>';?>
+                            	</label>
                             </div>
+                            <div>
+                            <p>Địa chỉ*</p>
+                            <label >
+                            <input type="text" name="u_address" maxlength="120" value="<?php if (isset($u_address))echo $u_address; ?>" />
+                            <br>
+                            <?php if (isset($error['u_address']))echo'<span class="error" style="display: block;">*'.$error['u_address']['message'].'.</span>';?>
+                            </label>
+                        </div>
                         </div>
                         <div>
                             <p>Tiêu đề tìm việc	*</p>
                             <label >
-                            <input type="text" maxlength="50" name="u_title"/>
+                            <input type="text" maxlength="50" name="u_title" value="<?php if (isset($u_title))echo $u_title; ?>"/>
                             <br>
-                            <span class="error" style="display: none;">*The message is too short.</span> <span class="empty" style="display: none;">*This field is required.</span>
+                            <?php if (isset($error['u_title']))echo'<span class="error" style="display: block;">*'.$error['u_title']['message'].'.</span></label><br />';?>
                             </label>
                         </div>
                         <div>
                             <p>Mục tiêu nghề nghiệp</p>
                             <label class="message">
-                            <textarea name="u_des"></textarea>
+                            <?php include __DIR__.'/../welcome/editor_tool.php';?>
+                            <div id="editor" contenteditable="true">
+      						Go ahead…
+   							</div>
                             <br>
                             <span class="error" style="display: none;">*The message is too short.</span> <span class="empty" style="display: none;">*This field is required.</span>
                             </label>
@@ -98,7 +158,7 @@
                             	if (is_array($job)) {
                             		foreach($job as $item) {
                             			echo '
-        									<option value="TDX01" ';
+        									<option value="'.$item['id'].'" ';
         									if (isset($u_job) && $u_job == $item['id'] )echo' selected';
         									echo'>'.$item['name'].'</option>
         								';
@@ -119,7 +179,7 @@
                             	if (is_array($thanhpho)) {
                             		foreach($thanhpho as $item) {
                             			echo '
-        									<option value="TDX01" ';
+        									<option value="'.$item['id'].'" ';
         									if (isset($u_location) && $u_location == $item['id'] )echo' selected';
         									echo'>'.$item['name'].'</option>
         								';
@@ -141,7 +201,7 @@
                             	if (is_array($exp)) {
                             		foreach($exp as $item) {
                             			echo '
-        									<option value="TDX01" ';
+        									<option value="'.$item['id'].'" ';
         									if (isset($u_exp) && $u_exp == $item['id'] )echo' selected';
         									echo'>'.$item['name'].'</option>
         								';
@@ -181,7 +241,7 @@
   						</div>
   						
                         <div class="btns" style="clear:both">
-                            <button data-type="submit" class="btn btn-primary" name="submit" type="submit">Đăng kí</button>
+                            <button data-type="submit" class="btn btn-primary" name="submit" type="submit" id="btn_submit">Đăng kí</button>
                             <p>* Bắt buộc nhập</p>
                         </div>
                     </fieldset>

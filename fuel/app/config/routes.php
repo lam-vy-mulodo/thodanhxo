@@ -26,4 +26,6 @@ return array(
 	'dang-ki-tim-tho' => 'company/dangki',//trang nhat ky truy cap
 	'thong-tin-ca-nhan' => 'users/userinfo',//trang thong tin ca nhan
 	'thay-doi-mat-khau' => 'users/change_password',//thay doi mk
+	'users/login' => 'users/login',
+	'users/logout' => 'users/logout',	
 );

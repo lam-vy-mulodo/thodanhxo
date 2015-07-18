@@ -1643,7 +1643,7 @@ header .follow_icons li a:hover {
 	overflow: hidden;
 	padding: 1px 4px 0px 0;
 	width: 100%;
-	color: #333;
+	color: red;
 	text-transform: none;
 	font-size: 11px;
 	line-height: 1.27em;

@@ -6,7 +6,6 @@ use Model\Admin;
 use Fuel\Core\Session;
 use Auth\Auth;
 use Fuel\Core\Response;
-
 /**
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
@@ -17,7 +16,6 @@ use Fuel\Core\Response;
  * @copyright  2010 - 2014 Fuel Development Team
  * @link       http://fuelphp.com
  */
-
 /**
  * The Welcome Controller.
  *
@@ -29,7 +27,6 @@ use Fuel\Core\Response;
  */
 class Controller_Admin_Admin extends Controller
 {
-
 	/**
 	 * The basic welcome message
 	 *

@@ -16,7 +16,7 @@
 <?php echo Asset::css('style.css');?>
 <?php echo Asset::css('flexslider.css');?>
 <?php echo Asset::css('bootstrap-datetimepicker.css');?>
-<link rel="stylesheet" href="assets/fonts/font-awesome.css">
+<link rel="stylesheet" href="<?php echo _SITE_DOMAIN_;?>assets/fonts/font-awesome.css">
 
 <!--JS-->
  
@@ -80,6 +80,16 @@ $(window).load(function() {
 						<article class="span12 linkBox">
 							<div>
 								<ul>
+									<?php 
+										// user had logged
+										if (Session::get('username')) {
+											$sess_user = Session::get('username');
+											echo'<li><a href="users/index"><i class="icon-user"></i>Chào, '.$sess_user.'</a></li>';
+											echo'<li><a href="users/logout"><i class="icon-signout"></i>Thoát!</a></li>';
+										}else{
+											echo'<li><a href="users/login"><i class="icon-signin"></i>Đăng nhập!</a></li>';
+										}
+									?>
 									<li><a href="dang-ki-tim-viec">Đăng kí tìm việc</a></li>
 									<li><a href="dang-ki-tim-tho">Đăng kí tìm thợ</a></li>
 									<li><a href="#">Hướng dẫn sử dụng</a></li>
@@ -109,7 +119,7 @@ $(window).load(function() {
 									<div class="clearfix">
 										<div class="nav-collapse nav-collapse_">
 											<ul class="nav sf-menu clearfix sf-js-enabled">
-												<li class="active"><a href="index">TRANG CHỦ</a></li>
+												<li class="active"><a href="index"><i class="icon-home"></i>TRANG CHỦ</a></li>
 												<li class="sub-menu"><a href="can-tho"
 													class="sf-with-ul">CẦN THỢ<span></span><b
 														class="sf-sub-indicator"></b></a>
