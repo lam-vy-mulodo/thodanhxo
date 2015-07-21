@@ -28,4 +28,6 @@ return array(
 	'thay-doi-mat-khau' => 'users/change_password',//thay doi mk
 	'users/login' => 'users/login',
 	'users/logout' => 'users/logout',	
+	//ajax
+	'get-nganh-nghe/(:num)' => 'welcome/getalljob/$1',	
 );

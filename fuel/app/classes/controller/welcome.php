@@ -1,4 +1,5 @@
 <?php
+use Model\Utility;
 /**
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
@@ -30,7 +31,14 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('welcome/index'));
+		$data = array();
+		//get cac du lieu cho form
+		//get thanhpho
+		$data['thanhpho'] = Utility::getlist(_TB_THANHPHO);
+		$data['exp'] = Utility::getlist(_TB_EXP_);
+		$data['job'] = Utility::getlist(_TB_JOB_);
+		$data['count'] = null;
+		return Response::forge(View::forge('welcome/index', $data));
 	}
 	
 	/**
@@ -100,6 +108,17 @@ class Controller_Welcome extends Controller
 	public function action_hello2()
 	{
 		returnView::forge('welcome/hello2');
+	}
+	/**
+	 * get all job in sort
+	 */
+	public function action_getalljob($type) {
+		
+		$data = Utility::getalljob($type);
+		if (false !== $data)
+			echo json_encode($data);
+		else 
+			echo ''; 
 	}
 	 
 }

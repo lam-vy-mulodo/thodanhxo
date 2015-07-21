@@ -2593,3 +2593,6 @@ blockquote a{
 #jqxcalendar, #log{
 	margin: 0 auto;
 }
+.loading {
+	width: 100%;
+}

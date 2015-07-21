@@ -95,7 +95,18 @@ use Model\Company;
 			$data['u_exp'] = Security::xss_clean(Input::post('u_exp'), $this->filters);
 			$data['u_type'] = Security::xss_clean(Input::post('type'), $this->filters);
 			//image and cv upload file
-			$data['u_image'] = '';//image path
+			if (Input::file('u_image')) {
+				$file = Input::file('u_image');
+				$upload = Utility::upload($file, 1,_URL_IMG_CONGTY_UPLOAD_);
+				if (isset($upload['file'])) {
+					$data['u_image'] = $upload['file'];//print_r($upload['file']);
+				}else {
+					$data['upload_error'] = $upload['upload_error'];
+				}
+			}else {
+				$data['u_image'] = '';//image path
+				
+			}
 			//$data['u_cv'] = '';//cv path
 			$data['group'] = _USER_NORMAL_GROUP_;//image path		
 			

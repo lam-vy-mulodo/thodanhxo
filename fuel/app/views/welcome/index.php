@@ -64,43 +64,30 @@
 							<div class="col-md-5">
 								<ul class="u-inline">
 									<li>Sắp xếp theo : </li>
-									<li class="e-sort" id="1" type="cantho"><span class="icon-ok"></span>ABC</li> 
-									<li class="e-sort" id="2" type="cantho">
+									<li class="job-sort" id="1" type="cantho"><span class="icon-ok"></span>ABC</li> 
+									<li class="job-sort" id="2" type="cantho">
 									<span class="icon-ok"></span>Ngành hot</li> 
 								</ul>
 							</div>
 							<em></em>
 						</div>
 						<div class="contentHolder">
+							
 							<ul class="list2">
 								<li>
-									<div class="row">
-									
-										  <div class="col-md-4">
-										  	<span><a href="">Kế toán- kiểm toán </a></span><span class="gray-bold">(1123)</span>
-										  	
-										  </div>
-										  <div class="col-md-4">
-										  	<span><a href="">Hành chính văn phòng </a></span><span class="gray-bold">(1123)</span>
-										  	
-										  </div>
-										  <div class="col-md-4">
-										  	<span><a href="">Sinh viên làm thêm </a></span><span class="gray-bold">(1123)</span>
-										  	
-										  </div>
-										  										  
-										  <div class="col-md-4">
-										  	<span><a href="">Xây dựng </a></span><span class="gray-bold">(1123)</span>
-										  	
-										  </div>
-										  <div class="col-md-4">
-										  	<span><a href="">Vận tải - lái xe </a></span><span class="gray-bold">(1123)</span>
-										  	
-										  </div>
-										  <div class="col-md-4">
-										  	<span><a href="">Làm bán thời gian </a></span><span class="gray-bold">(1123)</span>
-										  	
-										  </div>
+									<div class="row" id="job-result">
+										  <?php 
+										  if (isset($job)) {
+										  foreach ($job as $item) {
+										  	echo '
+												  <div class="col-md-4">
+												  	<span><a href="">'.$item['name'].'</a></span><span class="gray-bold">($count)</span>
+												  	
+												  </div>';
+										  }
+										  }
+										  ?>										  
+										  
 										
 									</div>
 								</li>

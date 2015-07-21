@@ -14,6 +14,7 @@ use Model\Thanhpho;
 use Model\Utility;
 use Model\User;
 use Auth\Auth;
+use Fuel\Core\Upload;
 /**
  * Fuel is a fast, lightweight, community driven PHP5 framework.
  *
@@ -36,6 +37,7 @@ use Auth\Auth;
  	
  	public $filters = array('strip_tags', 'htmlentities');
  	
+ 	//'ext_cv' => array('docx', 'doc', 'zip', 'rar')
 	public function before()
 	{
 		parent::before();
@@ -118,8 +120,34 @@ use Auth\Auth;
 			$data['u_exp'] = Security::xss_clean(Input::post('u_exp'), $this->filters);
 			$data['u_type'] = Security::xss_clean(Input::post('type'), $this->filters);
 			//image and cv upload file
-			$data['u_image'] = '';//image path
-			$data['u_cv'] = '';//cv path
+			
+			if (Input::file('u_image')) {
+				$file = Input::file('u_image');
+				$upload = Utility::upload($file, 1,_URL_IMG_UNGVIEN_UPLOAD_);
+				if (isset($upload['file'])) {
+					$data['u_image'] = $upload['file'];//print_r($upload['file']);
+				}else {
+					$data['upload_error'] = $upload['upload_error'];
+				}
+			}else {
+				$data['u_image'] = '';//image path
+				
+			}
+			//cv
+			if (Input::file('u_cv')) {
+				$file = Input::file('u_cv');
+				$upload = Utility::upload($file, 2,_URL_IMG_UNGVIEN_UPLOAD_);
+				if (isset($upload['file'])) {
+					$data['u_cv'] = $upload['file'];//print_r($upload['file']);
+				}else {
+					$data['upload_error'] = $upload['upload_error'];
+				}
+			}else {
+				$data['u_cv'] = '';//image path
+			
+			}
+			
+			$rs = null;
 			$data['group'] = _USER_NORMAL_GROUP_;//image path
 			$valid = User::validate_user($data);//print_r($valid);die;
 			if (true === $valid) {

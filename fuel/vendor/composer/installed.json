@@ -103,18 +103,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/log.git",
-            "reference": "bf2c13de4300e227d7b2fd08027673a79c519987"
+            "reference": "9e45edca52cc9c954680072c93e621f8b71fab26"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/log/zipball/bf2c13de4300e227d7b2fd08027673a79c519987",
-            "reference": "bf2c13de4300e227d7b2fd08027673a79c519987",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/9e45edca52cc9c954680072c93e621f8b71fab26",
+            "reference": "9e45edca52cc9c954680072c93e621f8b71fab26",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2015-03-26 14:39:45",
+        "time": "2015-06-02 13:48:41",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -295,24 +295,116 @@
         ]
     },
     {
+        "name": "pyrocms/lex",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/pyrocms/lex.git",
+            "reference": "af587bcbd3f3d0d83c7a4d49647f99f1153fd1b4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/pyrocms/lex/zipball/af587bcbd3f3d0d83c7a4d49647f99f1153fd1b4",
+            "reference": "af587bcbd3f3d0d83c7a4d49647f99f1153fd1b4",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "replace": {
+            "fuel/lex": "*"
+        },
+        "time": "2014-08-14 18:40:06",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Lex": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Dan Horrigan",
+                "email": "dan@dhorrigan.com",
+                "role": "Lead Developer"
+            }
+        ],
+        "description": "A lightweight template parser.",
+        "keywords": [
+            "parser",
+            "template"
+        ]
+    },
+    {
+        "name": "fuelphp/upload",
+        "version": "1.7",
+        "version_normalized": "1.7.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fuelphp/upload.git",
+            "reference": "08347078aaefdbb95df4fb2b0ddc748de5c8bf1f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fuelphp/upload/zipball/08347078aaefdbb95df4fb2b0ddc748de5c8bf1f",
+            "reference": "08347078aaefdbb95df4fb2b0ddc748de5c8bf1f",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "require-dev": {
+            "mockery/mockery": "0.7.*"
+        },
+        "time": "2013-05-02 14:27:26",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "FuelPHP\\Upload": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "FuelPHP Development Team",
+                "email": "team@fuelphp.com"
+            }
+        ],
+        "description": "Uploaded file processing.",
+        "homepage": "https://github.com/fuelphp/upload",
+        "keywords": [
+            "file uploads",
+            "upload"
+        ]
+    },
+    {
         "name": "smarty/smarty",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/smarty-php/smarty.git",
-            "reference": "2ff51de3df0c511e447fc1317a245efb70cb0922"
+            "reference": "f61084f70f979489fdc7306b452545511c53a453"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/smarty-php/smarty/zipball/2ff51de3df0c511e447fc1317a245efb70cb0922",
-            "reference": "2ff51de3df0c511e447fc1317a245efb70cb0922",
+            "url": "https://api.github.com/repos/smarty-php/smarty/zipball/f61084f70f979489fdc7306b452545511c53a453",
+            "reference": "f61084f70f979489fdc7306b452545511c53a453",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2"
         },
-        "time": "2015-05-12 02:48:10",
+        "time": "2015-07-20 02:38:13",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -358,18 +450,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/twigphp/Twig.git",
-            "reference": "34e943ae7cca8f9aff666fb87c3e6860e18fc138"
+            "reference": "c53d07a45da0552d6c735c4f8728c095bfe74c86"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/twigphp/Twig/zipball/34e943ae7cca8f9aff666fb87c3e6860e18fc138",
-            "reference": "34e943ae7cca8f9aff666fb87c3e6860e18fc138",
+            "url": "https://api.github.com/repos/twigphp/Twig/zipball/c53d07a45da0552d6c735c4f8728c095bfe74c86",
+            "reference": "c53d07a45da0552d6c735c4f8728c095bfe74c86",
             "shasum": ""
         },
         "require": {
             "php": ">=5.5.0"
         },
-        "time": "2015-03-17 06:32:29",
+        "time": "2015-07-20 22:59:22",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -417,12 +509,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/arnaud-lb/MtHaml.git",
-            "reference": "d90f6e2978109e7bf4ee3e58f03a807f3ac4a93c"
+            "reference": "7148fbf0a602fceafc46c2b75702c1320db7cdf8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/arnaud-lb/MtHaml/zipball/d90f6e2978109e7bf4ee3e58f03a807f3ac4a93c",
-            "reference": "d90f6e2978109e7bf4ee3e58f03a807f3ac4a93c",
+            "url": "https://api.github.com/repos/arnaud-lb/MtHaml/zipball/7148fbf0a602fceafc46c2b75702c1320db7cdf8",
+            "reference": "7148fbf0a602fceafc46c2b75702c1320db7cdf8",
             "shasum": ""
         },
         "require": {
@@ -459,7 +551,7 @@
             "oyejorge/less.php": "If you want to use :less filter",
             "twig/twig": "If you want to use Twig templating engine"
         },
-        "time": "2015-02-01 22:52:36",
+        "time": "2015-06-23 07:54:49",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -481,52 +573,6 @@
         "homepage": "https://github.com/arnaud-lb/MtHaml",
         "keywords": [
             "HAML"
-        ]
-    },
-    {
-        "name": "pyrocms/lex",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/pyrocms/lex.git",
-            "reference": "af587bcbd3f3d0d83c7a4d49647f99f1153fd1b4"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/pyrocms/lex/zipball/af587bcbd3f3d0d83c7a4d49647f99f1153fd1b4",
-            "reference": "af587bcbd3f3d0d83c7a4d49647f99f1153fd1b4",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "replace": {
-            "fuel/lex": "*"
-        },
-        "time": "2014-08-14 18:40:06",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-0": {
-                "Lex": "lib/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Dan Horrigan",
-                "email": "dan@dhorrigan.com",
-                "role": "Lead Developer"
-            }
-        ],
-        "description": "A lightweight template parser.",
-        "keywords": [
-            "parser",
-            "template"
         ]
     }
 ]

@@ -47,6 +47,13 @@ $(document).ready(function(){
 						<div class="alert alert-success">'.$message.'</div>';
 						if(isset($errors))echo'
 						<div class="alert alert-danger">'.$errors.'</div>';
+						if(isset($upload_error)) {
+							foreach($upload_error as $k => $v) {
+								echo'
+								<div class="alert alert-danger">'.$v.'</div>';
+							}
+						
+						}
 					?>
                     <fieldset>
                     <div>	<h3>Thông tin đăng nhập</h3>

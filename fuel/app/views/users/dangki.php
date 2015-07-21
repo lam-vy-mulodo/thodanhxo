@@ -12,7 +12,7 @@ $(document).ready(function(){
 	//alert();	
 });
 </script>
-<<style>
+<style>
 #editor {
   max-height: 250px;
   height: 150px;
@@ -41,12 +41,19 @@ $(document).ready(function(){
                 <em></em>
             </div>
             <div class="contentHolder">
-                <form id="contact-form" action="dang-ki-tim-viec" method="post">
+                <form id="contact-form" action="dang-ki-tim-viec" method="post" enctype="multipart/form-data">
                 	<?php 
                 		if(isset($message))echo'
 						<div class="alert alert-success">'.$message.'</div>';
 						if(isset($errors))echo'
 						<div class="alert alert-danger">'.$errors.'</div>';
+						if(isset($upload_error)) {
+							foreach($upload_error as $k => $v) {
+								echo'
+								<div class="alert alert-danger">'.$v.'</div>';
+							}
+						
+						}
 					?>
                     
                     <fieldset>
@@ -230,7 +237,7 @@ $(document).ready(function(){
                         <div class="form-div-2">
 						    <p>Upload Hình ảnh bản thân</p>
 						    <label>
-						    <input type="file" id="exampleInputFile" name="u_avt">
+						    <input type="file" id="exampleInputFile" name="u_image">
 						   </label>
   						</div>
   						<div class="form-div-3">

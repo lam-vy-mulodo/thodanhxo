@@ -20,6 +20,13 @@ class Utility extends Model {
 	 * them kinh nghiem
 	 * 
 	 */
+	public static $config = array(
+			'path' => '',
+			'randomize' => true,
+			'ext_image' => array('img', 'jpg', 'jpeg', 'gif', 'png'),
+			'ext_doc' => array('img', 'jpg', 'jpeg', 'gif', 'png'),
+	
+	);
 	public static function addvalue($table,$value) {
 	// try catch for insert
 		try {
@@ -111,5 +118,54 @@ class Utility extends Model {
 			Log::error($ex->getMessage());
 			return $ex->getMessage();
 		}
+	}
+	public static function upload($file, $type=1, $path) {
+		$data = array();
+		$arr = explode('.', $file['name']);
+		$ext = end($arr);
+		//check error
+		if ($file['error'] > 0) {
+			$data['upload_error'][] = 'Upload file bi loi';
+		}
+		elseif ($type == 1 && !in_array($ext,self::$config['ext_image'])) {
+			$data['upload_error'][] = 'File image khong dung dinh dang.';
+		}elseif ($type == 2 && !in_array($ext, self::$config['ext_image'])) {
+			$data['upload_error'][] = 'File tai lieu khong dung dinh dang.';
+		}else {
+			$time = time();
+			$filename = $path.$time.$file['name'];
+			move_uploaded_file($file['tmp_name'], $filename);
+			//print_r(_URL_IMG_UNGVIEN_UPLOAD_.$time.$file['name'].'.'.$ext);
+			$data['file'] = $filename ;
+		}
+		return $data;
+	}
+	/**
+	 * function get jon for ajax call
+	 */
+	public static function getalljob($type) {
+		try {
+			if ($type == 1) {
+				//get theo ABC
+				$query = DB::query("SELECT * FROM job ORDER BY name ");
+			}else {
+				//order by count tin tuc, tam thoi order theo id
+				$query = DB::query("SELECT * FROM job ORDER BY id desc");
+			}
+			$rs = $query->execute()->as_array();
+			
+			if (count($rs) > 0) {
+			
+				return $rs;
+			} else {
+			
+				return false;
+			}
+		
+		} catch (\Exception $ex) {
+			Log::error($ex->getMessage());
+			return $ex->getMessage();
+		}
+		
 	}
 }
