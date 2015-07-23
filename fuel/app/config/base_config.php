@@ -1,7 +1,7 @@
 <?php
 
 //define('_SITE_DOMAIN_','http://localhost/thodanhxo/');
-define('_SITE_DOMAIN_','http://tour.his-j.com.local/thodanhxo2/');
+define('_SITE_DOMAIN_','http://'.$_SERVER['HTTP_HOST'].'/thodanhxo2/');
 define('_ROOT_IMG_', _SITE_DOMAIN_.'assets/img/');
 define('_ROOT_CSS_', _SITE_DOMAIN_.'assets/css/');
 define('_ROOT_JS_', _SITE_DOMAIN_.'assets/js/');
@@ -23,3 +23,5 @@ define('_USER_VIP_GROUP_',0);
 define('_USER_STATUS_NOT_',0);
 define('_USER_LOGIN_TYPE_',1);
 define('_COMPANY_LOGIN_TYPE_',0);
+//stock session login
+Session::set('username','thuyvy');

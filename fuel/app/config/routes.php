@@ -27,7 +27,9 @@ return array(
 	'thong-tin-ca-nhan' => 'users/userinfo',//trang thong tin ca nhan
 	'thay-doi-mat-khau' => 'users/change_password',//thay doi mk
 	'users/login' => 'users/login',
-	'users/logout' => 'users/logout',	
+	'users/logout' => 'users/logout',
+	'users/tai-khoan' => 'users/index',
+	'users/list-ho-so' => 'users/getlistcv',	
 	//ajax
 	'get-nganh-nghe/(:num)' => 'welcome/getalljob/$1',	
 );

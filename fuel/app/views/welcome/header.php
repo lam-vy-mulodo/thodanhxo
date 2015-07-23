@@ -84,14 +84,29 @@ $(window).load(function() {
 										// user had logged
 										if (Session::get('username')) {
 											$sess_user = Session::get('username');
-											echo'<li><a href="users/index"><i class="icon-user"></i>Chào, '.$sess_user.'</a></li>';
-											echo'<li><a href="users/logout"><i class="icon-signout"></i>Thoát!</a></li>';
+											echo'
+											<li>
+															
+													<div class="btn-group">
+											        <a href="#" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											          Chào, '.$sess_user.'<span class="caret"></span>
+											        </a>
+											        <ul class="dropdown-menu">
+											          <li><a href="'._SITE_DOMAIN_.'tho-can">Trang cần thợ</a></li>
+											          <li><a href="'._SITE_DOMAIN_.'users/index">Tài khoản</a></li>
+											          <li><a href="'._SITE_DOMAIN_.'users/list-ho-so">Tủ hồ sơ</a></li>
+											          
+											          <li><a href="'._SITE_DOMAIN_.'users/logout"><i class="icon-signout"></i>Thoát!</a></li>
+											        </ul>
+											      </div>
+											</li>';
+											
 										}else{
 											echo'<li><a href="users/login"><i class="icon-signin"></i>Đăng nhập!</a></li>';
 										}
 									?>
-									<li><a href="dang-ki-tim-viec">Đăng kí tìm việc</a></li>
-									<li><a href="dang-ki-tim-tho">Đăng kí tìm thợ</a></li>
+									<li><a href="<?php echo _SITE_DOMAIN_;?>dang-ki-tim-viec">Đăng kí tìm việc</a></li>
+									<li><a href="<?php echo _SITE_DOMAIN_;?>dang-ki-tim-tho">Đăng kí tìm thợ</a></li>
 									<li><a href="#">Hướng dẫn sử dụng</a></li>
 									<li><a href="#">Liên kết datmang.net</a></li>
 									<li><a href="#">Tài trợ</a></li>

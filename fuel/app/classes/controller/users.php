@@ -176,9 +176,13 @@ use Fuel\Core\Upload;
 		return Response::forge(View::forge('users/dangki', $data));
 	}
 	
-	public function action_timkiemgiaodich() {
-		$this->template->content = View_Smarty::forge('users/timkiemgiaodich.tpl');
-		return mb_convert_encoding($this->template, 'utf-8', 'utf-8');
+	/**
+	 * action use to get list cv created
+	 * @return \Fuel\Core\Response
+	 */
+	public function action_getlistcv() {
+		$data = array();
+		return Response::forge(View::forge('users/getlistcv', $data));
 	}
 	/**
 	 * sao ke tai khoan

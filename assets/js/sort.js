@@ -2,6 +2,7 @@
  * the file to set sort
  */
 $(document).ready(function(){
+	var SITEDOMAIN ='';
 	// browser check
     var userAgent = window.navigator.userAgent.toLowerCase();
     var appVersion = window.navigator.appVersion.toLowerCase();
@@ -73,7 +74,7 @@ $(document).ready(function(){
     $("#dateitem").mouseout(function(){
         $(this).css("text-decoration","none");
     });
-    
+    $('.job-sort').css("cursor","pointer");
     //display calendar
     $.btn_calendar = $("#dateitem");
     $.calendar = $("#areacalendar");
@@ -106,12 +107,15 @@ $(document).ready(function(){
     	 $("blockquote").css("padding-right","30px");
     	 $(".inner-10").remove();
     }else{
-    	var page = document.location.pathname.match(/[^\/]+$/)[0];
-    	if (page == 'dang-ki-tim-viec' || page == 'dang-ki-tim-tho') {
-    	$("head").append("<link type=\"text/css\" rel=\"stylesheet\" href=\"assets/css/dangki.css\">");
-    	$("head").append("<link type=\"text/css\" rel=\"stylesheet\" href=\"assets/css/owl.carousel.css\">");
-    	$("head").append("<script type=\"text/javascript\" src=\"assets/js/owl.carousel.min.js\"></script>");
-    	}
+    	if (document.location.pathname.match(/[^\/]+$/) != null) {
+    		var page = document.location.pathname.match(/[^\/]+$/)[0];
+        	if (page == 'dang-ki-tim-viec' || page == 'dang-ki-tim-tho') {
+        	$("head").append("<link type=\"text/css\" rel=\"stylesheet\" href=\"assets/css/dangki.css\">");
+        	$("head").append("<link type=\"text/css\" rel=\"stylesheet\" href=\"assets/css/owl.carousel.css\">");
+        	$("head").append("<script type=\"text/javascript\" src=\"assets/js/owl.carousel.min.js\"></script>");
+        	}
+    	} 
+    	
     }
     $("#btn_quicksearch").click(function(){	
     	if($("#formsearch").is(':visible')) $("#formsearch").hide();
@@ -120,5 +124,33 @@ $(document).ready(function(){
     		$(this).text("Ẩn tìm kiếm");
     	}
     });
-    
+    //sort
+    var loading = '<img src = "assets/img/load.gif" alt="Loading ..." class="load1" width="50px" height="50px" />';
+    $('.job-sort').click(function(){
+    	//loading
+    	//$('#job-result').parent().parent().html('');
+    	$('#job-result').parent().prepend(loading);
+    	content = '';
+    	$type = $(this).attr('id');
+    	$.ajax({
+    		url: SITEDOMAIN+'get-nganh-nghe/'+$type,
+    		type: 'POST',
+    		data: '',
+    		success: function(data){
+    			if (data != null) {
+    				var getData = $.parseJSON(data);
+        			for (i = 0; i < getData.length; i++) {
+        				content += '<div class="col-md-4">'
+    					  		+ '<span><a href="">'+getData[i].name+'</a></span><span class="gray-bold"></span>'
+    					  		+ '</div>';
+    						 
+        			}
+        			$("#job-result").html(content);
+        			$('#job-result').parent().find(".load1").remove();
+    			}
+    			
+    		}
+    	});
+    });
+    $('.dropdown-toggle').dropdown();
 });

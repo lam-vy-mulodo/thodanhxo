@@ -1239,7 +1239,7 @@ header .follow_icons li a:hover {
 .linkBox ul {
 	margin: 0;
 	list-style: none;
-	overflow: hidden;
+	/* overflow: hidden; */
 	margin-right: 30px;
 }
 .linkBox ul li {
@@ -2595,4 +2595,54 @@ blockquote a{
 }
 .loading {
 	width: 100%;
+}
+.linkBox ul li ul li {
+  width: 100%;
+ 
+}
+.linkBox ul li ul li:first-child a  {
+ 
+
+ margin-left:12px;
+ width:93%;
+}
+.linkBox ul li ul li a {
+	 width: 100%;
+	 padding: 12px 20px;
+  	 color: #333;
+}
+.user-menu-top{
+	list-style-type : none;
+	width:100%;
+	padding:0px;
+	margin:0px;
+	
+}
+.user-menu-top > li > a {	
+  position: relative;
+  display: inline-block;
+  padding: 10px 15px;
+  float: left;
+  color: #333;
+  font-weight: bold;
+}
+
+.user-menu-top > li > a:hover {
+	border-bottom:2px solid #027266;
+}
+.form-theo-doi .btn {
+  width: 70px;
+  float: left;
+  font-weight: 700!important;
+  font-size: 12px!important;
+  height: 35px;
+  border: none;
+  border-radius: 0 3px 3px 0;
+}
+.form-theo-doi input {
+	float:left;
+	width: 230px;
+}
+.btn {
+  cursor: pointer;
 }
